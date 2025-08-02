@@ -2,17 +2,87 @@
 <html>
 <head>
   <title>ClassConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* --------------------
+    GLOBAL STYLES
+    -------------------- */
+    :root {
+      --main-bg-color: #f0fdf4; /* Very light green background */
+      --card-bg-color: #fff;
+      --primary-green: #22c55e; /* Vibrant green for accents */
+      --text-color-dark: #1f2937;
+      --text-color-light: #6b7280;
+      --border-color: #e5e7eb;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--main-bg-color);
+      color: var(--text-color-dark);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    /* --------------------
+    CONTAINER AND TEXT
+    -------------------- */
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background-color: var(--card-bg-color);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+    
     h1 {
-      font-family: "Georgia", serif;
-      font-size: 3em;               
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 2.5rem; /* Adjusting font size for better scale */
+      color: var(--primary-green);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--text-color-light);
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    /* --------------------
+    CHATBOT STYLES
+    -------------------- */
+    df-messenger {
+      z-index: 999;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      --df-messenger-button-titlebar-color: var(--primary-green);
+      --df-messenger-chat-background: #f0fdf4;
+      --df-messenger-message-user-background: var(--primary-green);
+      --df-messenger-message-bot-background: #fff;
+      --df-messenger-message-bot-font-color: var(--text-color-dark);
     }
   </style>
 </head>
 <body>
-  <h1>ClassConnect Chatbot Messenger</h1>
-  <p>Alpha testing site for ClassConnect chatbot</p>
 
+  <div class="container">
+    <h1>ClassConnect Chatbot Messenger</h1>
+    <p>Alpha testing site for the ClassConnect chatbot. Your feedback is greatly appreciated!</p>
+  </div>
+  
   <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
   <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
   <df-messenger
@@ -24,23 +94,6 @@
       chat-title="Class Connect Chatbot">
     </df-messenger-chat>
   </df-messenger>
-  <style>
-    df-messenger {
-      z-index: 999;
-      position: fixed;
-      --df-messenger-font-color: #000;
-      --df-messenger-font-family: Google Sans;
-      --df-messenger-chat-background: #f3f6fc;
-      --df-messenger-message-user-background: #d3e3fd;
-      --df-messenger-message-bot-background: #fff;
-      bottom: 0;
-      right: 0;
-      top: 0;
-      width: 350px;
-    }
-  </style>
 
 </body>
 </html>
-
-
