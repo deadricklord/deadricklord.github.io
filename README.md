@@ -1,1 +1,0 @@
-# deadricklord.github.io
