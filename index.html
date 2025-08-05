@@ -1,309 +1,309 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ClassConnect</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    /* --------------------
-    GLOBAL STYLES
-    -------------------- */
-    :root {
-      --main-bg-color: #f0fdf4; /* Very light green background */
-      --card-bg-color: #fff;
-      --primary-green: #22c55e; /* Vibrant green for accents */
-      --text-color-dark: #1f2937;
-      --text-color-light: #6b7280;
-      --border-color: #e5e7eb;
-    }
+  <title>ClassConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* --------------------
+    GLOBAL STYLES
+    -------------------- */
+    :root {
+      --main-bg-color: #f0fdf4; /* Very light green background */
+      --card-bg-color: #fff;
+      --primary-green: #22c55e; /* Vibrant green for accents */
+      --text-color-dark: #1f2937;
+      --text-color-light: #6b7280;
+      --border-color: #e5e7eb;
+    }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--main-bg-color);
-      color: var(--text-color-dark);
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start; /* Align items to the start so content flows downwards */
-      min-height: 100vh;
-      box-sizing: border-box;
-      flex-direction: column; /* Arrange content in a column */
-    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--main-bg-color);
+      color: var(--text-color-dark);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* Align items to the start so content flows downwards */
+      min-height: 100vh;
+      box-sizing: border-box;
+      flex-direction: column; /* Arrange content in a column */
+    }
 
-    /* --------------------
-    CONTAINER AND TEXT
-    -------------------- */
-    .container {
-      max-width: 600px;
-      width: 100%;
-      background-color: var(--card-bg-color);
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      text-align: center;
-      margin-bottom: 30px; /* Add space below the chatbot description */
-    }
-    
-    h1 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 2.5rem;
-      color: var(--primary-green);
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
+    /* --------------------
+    CONTAINER AND TEXT
+    -------------------- */
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background-color: var(--card-bg-color);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      margin-bottom: 30px; /* Add space below the chatbot description */
+    }
+    
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 2.5rem;
+      color: var(--primary-green);
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
 
-    p {
-      font-size: 1rem;
-      color: var(--text-color-light);
-      margin-top: 0;
-      margin-bottom: 20px;
-    }
+    p {
+      font-size: 1rem;
+      color: var(--text-color-light);
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
 
-    /* --------------------
-    CHATBOT STYLES (RESTORED TO ORIGINAL)
-    -------------------- */
-    df-messenger {
-      z-index: 999;
-      position: fixed;
-      /* Using your provided bottom/right for chat bubble */
-      bottom: 16px;
-      right: 16px;
-      /* Restored original color scheme */
-      --df-messenger-font-color: #000;
-      --df-messenger-font-family: Google Sans;
-      --df-messenger-chat-background: #f3f6fc;
-      --df-messenger-message-user-background: #d3e3fd;
-      --df-messenger-message-bot-background: #fff;
-      /* Remove top/width if you only want the bubble and expanded window */
-      /* top: 0; */
-      /* width: 350px; */
-    }
+    /* --------------------
+    CHATBOT STYLES (RESTORED TO ORIGINAL)
+    -------------------- */
+    df-messenger {
+      z-index: 999;
+      position: fixed;
+      /* Using your provided bottom/right for chat bubble */
+      bottom: 16px;
+      right: 16px;
+      /* Restored original color scheme */
+      --df-messenger-font-color: #000;
+      --df-messenger-font-family: Google Sans;
+      --df-messenger-chat-background: #f3f6fc;
+      --df-messenger-message-user-background: #d3e3fd;
+      --df-messenger-message-bot-background: #fff;
+      /* Remove top/width if you only want the bubble and expanded window */
+      /* top: 0; */
+      /* width: 350px; */
+    }
 
-    /* --------------------
-    NEW TICKETING SYSTEM STYLES
-    -------------------- */
-    .ticketing-container {
-      max-width: 600px;
-      width: 100%;
-      background-color: var(--card-bg-color);
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      text-align: left; /* Align text left within the ticketing section */
-    }
+    /* --------------------
+    NEW TICKETING SYSTEM STYLES
+    -------------------- */
+    .ticketing-container {
+      max-width: 600px;
+      width: 100%;
+      background-color: var(--card-bg-color);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      text-align: left; /* Align text left within the ticketing section */
+    }
 
-    .ticketing-container h2 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 1.8rem;
-      color: var(--text-color-dark);
-      margin-bottom: 20px;
-      text-align: center;
-    }
+    .ticketing-container h2 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: var(--text-color-dark);
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-    .ticketing-container form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-bottom: 30px;
-    }
+    .ticketing-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
 
-    .ticketing-container input[type="text"],
-    .ticketing-container textarea,
-    .ticketing-container input[type="email"] {
-      width: calc(100% - 20px); /* Account for padding */
-      padding: 10px;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      color: var(--text-color-dark);
-    }
+    .ticketing-container input[type="text"],
+    .ticketing-container textarea,
+    .ticketing-container input[type="email"] {
+      width: calc(100% - 20px); /* Account for padding */
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      color: var(--text-color-dark);
+    }
 
-    .ticketing-container textarea {
-      resize: vertical; /* Allow vertical resizing */
-      min-height: 80px;
-    }
+    .ticketing-container textarea {
+      resize: vertical; /* Allow vertical resizing */
+      min-height: 80px;
+    }
 
-    .ticketing-container button {
-      background-color: var(--primary-green);
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      align-self: flex-end; /* Align button to the right */
-    }
+    .ticketing-container button {
+      background-color: var(--primary-green);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      align-self: flex-end; /* Align button to the right */
+    }
 
-    .ticketing-container button:hover {
-      background-color: #16a34a; /* Darker green on hover */
-    }
+    .ticketing-container button:hover {
+      background-color: #16a34a; /* Darker green on hover */
+    }
 
-    #ticketList {
-      margin-top: 20px;
-      border-top: 1px solid var(--border-color);
-      padding-top: 20px;
-    }
+    #ticketList {
+      margin-top: 20px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 20px;
+    }
 
-    .ticket-item {
-      background-color: var(--main-bg-color); /* Lighter background for individual tickets */
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      border: 1px solid var(--border-color);
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
+    .ticket-item {
+      background-color: var(--main-bg-color); /* Lighter background for individual tickets */
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
 
-    .ticket-item h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      color: var(--primary-green);
-    }
+    .ticket-item h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--primary-green);
+    }
 
-    .ticket-item p {
-      margin: 0;
-      font-size: 0.95rem;
-      color: var(--text-color-dark);
-    }
+    .ticket-item p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-color-dark);
+    }
 
-    .ticket-item p strong {
-      color: var(--text-color-dark);
-    }
+    .ticket-item p strong {
+      color: var(--text-color-dark);
+    }
 
-    .ticket-item small {
-      font-size: 0.8rem;
-      color: var(--text-color-light);
-      align-self: flex-end; /* Align timestamp to the right */
-    }
-  </style>
+    .ticket-item small {
+      font-size: 0.8rem;
+      color: var(--text-color-light);
+      align-self: flex-end; /* Align timestamp to the right */
+    }
+  </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>ClassConnect Chatbot Messenger</h1>
-    <p>Alpha testing site for the ClassConnect chatbot. Your feedback is greatly appreciated!</p>
-  </div>
-  
-  <div class="ticketing-container">
-    <h2>Submit a New Support Ticket</h2>
-    <form id="ticketForm">
-      <input type="text" id="subjectInput" placeholder="Subject of your issue" required>
-      <textarea id="descriptionInput" placeholder="Detailed description of your problem" rows="6" required></textarea>
-      <input type="email" id="emailInput" placeholder="Your Email Address" required>
-      <button type="submit">Submit Ticket</button>
-    </form>
+  <div class="container">
+    <h1>ClassConnect Chatbot Messenger</h1>
+    <p>Alpha testing site for the ClassConnect chatbot. Your feedback is greatly appreciated!</p>
+  </div>
+  
+  <div class="ticketing-container">
+    <h2>Submit a New Support Ticket</h2>
+    <form id="ticketForm">
+      <input type="text" id="subjectInput" placeholder="Subject of your issue" required>
+      <textarea id="descriptionInput" placeholder="Detailed description of your problem" rows="6" required></textarea>
+      <input type="email" id="emailInput" placeholder="Your Email Address" required>
+      <button type="submit">Submit Ticket</button>
+    </form>
 
-    <h2>Recent Tickets</h2>
-    <div id="ticketList">
-      <p>Loading tickets...</p>
-    </div>
-  </div>
+    <h2>Recent Tickets</h2>
+    <div id="ticketList">
+      <p>Loading tickets...</p>
+    </div>
+  </div>
 
-  <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
-  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
-  <df-messenger
-    project-id="classconnect-chatbot-466706"
-    agent-id="80fb2509-0e6f-43fb-8b7d-001aad576145"
-    language-code="en"
-    max-query-length="-1"
-    enable-voice="true">
-    <df-messenger-chat-bubble
-      chat-title="Class Connect Chatbot">
-    </df-messenger-chat-bubble>
-  </df-messenger>
-  <script>
-    // !!! IMPORTANT: REPLACE THIS WITH YOUR ACTUAL CLOUD RUN SERVICE URL !!!
-    // You obtained this URL when you successfully deployed your ticketing-backend service
-    const CLOUD_RUN_API_URL = 'https://ticketing-backend-84178063676.asia-east1.run.app'; 
-    // Example: const CLOUD_RUN_API_URL = 'https://ticketing-backend-xyz-abcdef.run.app';
+  <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+  <df-messenger
+    project-id="classconnect-chatbot-466706"
+    agent-id="80fb2509-0e6f-43fb-8b7d-001aad576145"
+    language-code="en"
+    max-query-length="-1">
+    <df-messenger-chat-bubble
+      chat-title="Class Connect Chatbot">
+    </df-messenger-chat-bubble>
+  </df-messenger>
+  <script>
+    // !!! IMPORTANT: REPLACE THIS WITH YOUR ACTUAL CLOUD RUN SERVICE URL !!!
+    // You obtained this URL when you successfully deployed your ticketing-backend service
+    const CLOUD_RUN_API_URL = 'https://ticketing-backend-84178063676.asia-east1.run.app'; 
+    // Example: const CLOUD_RUN_API_URL = 'https://ticketing-backend-xyz-abcdef.run.app';
 
-    // Function to create a new ticket
-    async function createTicket(event) {
-      event.preventDefault(); // Prevent default form submission
+    // Function to create a new ticket
+    async function createTicket(event) {
+      event.preventDefault(); // Prevent default form submission
 
-      const subject = document.getElementById('subjectInput').value;
-      const description = document.getElementById('descriptionInput').value;
-      const reporterEmail = document.getElementById('emailInput').value;
+      const subject = document.getElementById('subjectInput').value;
+      const description = document.getElementById('descriptionInput').value;
+      const reporterEmail = document.getElementById('emailInput').value;
 
-      if (!subject || !description || !reporterEmail) {
-        alert('Please fill in all fields.');
-        return;
-      }
+      if (!subject || !description || !reporterEmail) {
+        alert('Please fill in all fields.');
+        return;
+      }
 
-      try {
-        const response = await fetch(`${CLOUD_RUN_API_URL}/tickets`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ subject, description, reporterEmail })
-        });
+      try {
+        const response = await fetch(`${CLOUD_RUN_API_URL}/tickets`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ subject, description, reporterEmail })
+        });
 
-        if (response.ok) {
-          alert('Ticket created successfully!');
-          // Clear form fields
-          document.getElementById('subjectInput').value = '';
-          document.getElementById('descriptionInput').value = '';
-          document.getElementById('emailInput').value = '';
-          fetchTickets(); // Refresh the list of tickets
-        } else {
-          const errorData = await response.text();
-          alert(`Failed to create ticket: ${errorData}`);
-          console.error('Backend error:', errorData);
-        }
-      } catch (error) {
-        console.error('Network or client-side error creating ticket:', error);
-        alert('An error occurred while creating the ticket. Please check your internet connection or try again.');
-      }
-    }
+        if (response.ok) {
+          alert('Ticket created successfully!');
+          // Clear form fields
+          document.getElementById('subjectInput').value = '';
+          document.getElementById('descriptionInput').value = '';
+          document.getElementById('emailInput').value = '';
+          fetchTickets(); // Refresh the list of tickets
+        } else {
+          const errorData = await response.text();
+          alert(`Failed to create ticket: ${errorData}`);
+          console.error('Backend error:', errorData);
+        }
+      } catch (error) {
+        console.error('Network or client-side error creating ticket:', error);
+        alert('An error occurred while creating the ticket. Please check your internet connection or try again.');
+      }
+    }
 
-    // Function to fetch and display tickets
-    async function fetchTickets() {
-      const ticketListDiv = document.getElementById('ticketList');
-      ticketListDiv.innerHTML = '<p>Loading tickets...</p>'; // Show loading state
+    // Function to fetch and display tickets
+    async function fetchTickets() {
+      const ticketListDiv = document.getElementById('ticketList');
+      ticketListDiv.innerHTML = '<p>Loading tickets...</p>'; // Show loading state
 
-      try {
-        const response = await fetch(`${CLOUD_RUN_API_URL}/tickets`);
-        if (response.ok) {
-          const tickets = await response.json();
-          if (tickets.length === 0) {
-            ticketListDiv.innerHTML = '<p>No tickets found yet.</p>';
-            return;
-          }
-          // Clear previous tickets and render new ones
-          ticketListDiv.innerHTML = tickets.map(ticket => `
-            <div class="ticket-item">
-              <h3>${ticket.subject} <small>(ID: ${ticket.id})</small></h3>
-              <p><strong>Status:</strong> ${ticket.status}</p>
-              <p><strong>Reporter:</strong> ${ticket.reporterEmail}</p>
-              <p>${ticket.description}</p>
-              <small>Created: ${new Date(ticket.createdAt._seconds * 1000).toLocaleString()}</small>
-            </div>
-          `).join('');
-        } else {
-          ticketListDiv.innerHTML = '<p>Failed to load tickets.</p>';
-          console.error('Failed to fetch tickets:', response.status, response.statusText);
-        }
-      } catch (error) {
-        console.error('Network or client-side error fetching tickets:', error);
-        ticketListDiv.innerHTML = '<p>An error occurred while loading tickets. Please try again later.</p>';
-      }
-    }
+      try {
+        const response = await fetch(`${CLOUD_RUN_API_URL}/tickets`);
+        if (response.ok) {
+          const tickets = await response.json();
+          if (tickets.length === 0) {
+            ticketListDiv.innerHTML = '<p>No tickets found yet.</p>';
+            return;
+          }
+          // Clear previous tickets and render new ones
+          ticketListDiv.innerHTML = tickets.map(ticket => `
+            <div class="ticket-item">
+              <h3>${ticket.subject} <small>(ID: ${ticket.id})</small></h3>
+              <p><strong>Status:</strong> ${ticket.status}</p>
+              <p><strong>Reporter:</strong> ${ticket.reporterEmail}</p>
+              <p>${ticket.description}</p>
+              <small>Created: ${new Date(ticket.createdAt._seconds * 1000).toLocaleString()}</small>
+            </div>
+          `).join('');
+        } else {
+          ticketListDiv.innerHTML = '<p>Failed to load tickets.</p>';
+          console.error('Failed to fetch tickets:', response.status, response.statusText);
+        }
+      } catch (error) {
+        console.error('Network or client-side error fetching tickets:', error);
+        ticketListDiv.innerHTML = '<p>An error occurred while loading tickets. Please try again later.</p>';
+      }
+    }
 
-    // Event listeners to run functions when the page loads and form is submitted
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('ticketForm').addEventListener('submit', createTicket);
-      fetchTickets(); // Load tickets when the page first loads
-    });
-  </script>
+    // Event listeners to run functions when the page loads and form is submitted
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('ticketForm').addEventListener('submit', createTicket);
+      fetchTickets(); // Load tickets when the page first loads
+    });
+  </script>
 
 </body>
 </html>
+
