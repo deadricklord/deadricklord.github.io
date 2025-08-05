@@ -6,10 +6,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* --------------------
+    GLOBAL STYLES
+    -------------------- */
     :root {
-      --main-bg-color: #f0fdf4;
+      --main-bg-color: #f0fdf4; /* Very light green background */
       --card-bg-color: #fff;
-      --primary-green: #22c55e;
+      --primary-green: #22c55e; /* Vibrant green for accents */
       --text-color-dark: #1f2937;
       --text-color-light: #6b7280;
       --border-color: #e5e7eb;
@@ -23,12 +26,15 @@
       padding: 20px;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
+      align-items: flex-start; /* Align items to the start so content flows downwards */
       min-height: 100vh;
       box-sizing: border-box;
-      flex-direction: column;
+      flex-direction: column; /* Arrange content in a column */
     }
 
+    /* --------------------
+    CONTAINER AND TEXT
+    -------------------- */
     .container {
       max-width: 600px;
       width: 100%;
@@ -37,10 +43,11 @@
       border-radius: 12px;
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 30px; /* Add space below the chatbot description */
     }
-
+    
     h1 {
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       font-size: 2.5rem;
       color: var(--primary-green);
@@ -55,18 +62,29 @@
       margin-bottom: 20px;
     }
 
+    /* --------------------
+    CHATBOT STYLES (RESTORED TO ORIGINAL)
+    -------------------- */
     df-messenger {
       z-index: 999;
       position: fixed;
+      /* Using your provided bottom/right for chat bubble */
       bottom: 16px;
       right: 16px;
+      /* Restored original color scheme */
       --df-messenger-font-color: #000;
       --df-messenger-font-family: Google Sans;
       --df-messenger-chat-background: #f3f6fc;
       --df-messenger-message-user-background: #d3e3fd;
       --df-messenger-message-bot-background: #fff;
+      /* Remove top/width if you only want the bubble and expanded window */
+      /* top: 0; */
+      /* width: 350px; */
     }
 
+    /* --------------------
+    NEW TICKETING SYSTEM STYLES
+    -------------------- */
     .ticketing-container {
       max-width: 600px;
       width: 100%;
@@ -74,10 +92,11 @@
       padding: 40px;
       border-radius: 12px;
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      text-align: left;
+      text-align: left; /* Align text left within the ticketing section */
     }
 
     .ticketing-container h2 {
+      font-family: 'Poppins', sans-serif;
       font-weight: 600;
       font-size: 1.8rem;
       color: var(--text-color-dark);
@@ -95,16 +114,17 @@
     .ticketing-container input[type="text"],
     .ticketing-container textarea,
     .ticketing-container input[type="email"] {
-      width: calc(100% - 20px);
+      width: calc(100% - 20px); /* Account for padding */
       padding: 10px;
       border: 1px solid var(--border-color);
       border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
       font-size: 1rem;
       color: var(--text-color-dark);
     }
 
     .ticketing-container textarea {
-      resize: vertical;
+      resize: vertical; /* Allow vertical resizing */
       min-height: 80px;
     }
 
@@ -118,11 +138,11 @@
       font-weight: 600;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      align-self: flex-end;
+      align-self: flex-end; /* Align button to the right */
     }
 
     .ticketing-container button:hover {
-      background-color: #16a34a;
+      background-color: #16a34a; /* Darker green on hover */
     }
 
     #ticketList {
@@ -132,7 +152,7 @@
     }
 
     .ticket-item {
-      background-color: var(--main-bg-color);
+      background-color: var(--main-bg-color); /* Lighter background for individual tickets */
       padding: 15px;
       border-radius: 8px;
       margin-bottom: 15px;
@@ -161,34 +181,7 @@
     .ticket-item small {
       font-size: 0.8rem;
       color: var(--text-color-light);
-      align-self: flex-end;
-    }
-
-    /* Mic button */
-    #voiceBtn {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      z-index: 1000;
-      background-color: var(--primary-green);
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 50%;
-      font-size: 20px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }
-
-    /* Pulse animation for mic listening state */
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-      70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-    }
-
-    #voiceBtn.listening {
-      animation: pulse 1.5s infinite;
+      align-self: flex-end; /* Align timestamp to the right */
     }
   </style>
 </head>
@@ -214,10 +207,6 @@
     </div>
   </div>
 
-  <!-- Mic Button -->
-  <button id="voiceBtn" title="Click to speak">🎤</button>
-
-  <!-- Dialogflow CX Chatbot -->
   <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
   <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
   <df-messenger
@@ -225,15 +214,20 @@
     agent-id="80fb2509-0e6f-43fb-8b7d-001aad576145"
     language-code="en"
     max-query-length="-1">
-    <df-messenger-chat-bubble chat-title="Class Connect Chatbot"></df-messenger-chat-bubble>
+    <df-messenger-chat-bubble
+      chat-title="Class Connect Chatbot">
+    </df-messenger-chat-bubble>
   </df-messenger>
-
-  <!-- Scripts -->
   <script>
-    const CLOUD_RUN_API_URL = 'https://ticketing-backend-84178063676.asia-east1.run.app';
+    // !!! IMPORTANT: REPLACE THIS WITH YOUR ACTUAL CLOUD RUN SERVICE URL !!!
+    // You obtained this URL when you successfully deployed your ticketing-backend service
+    const CLOUD_RUN_API_URL = 'https://ticketing-backend-84178063676.asia-east1.run.app'; 
+    // Example: const CLOUD_RUN_API_URL = 'https://ticketing-backend-xyz-abcdef.run.app';
 
+    // Function to create a new ticket
     async function createTicket(event) {
-      event.preventDefault();
+      event.preventDefault(); // Prevent default form submission
+
       const subject = document.getElementById('subjectInput').value;
       const description = document.getElementById('descriptionInput').value;
       const reporterEmail = document.getElementById('emailInput').value;
@@ -246,108 +240,70 @@
       try {
         const response = await fetch(`${CLOUD_RUN_API_URL}/tickets`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+          },
           body: JSON.stringify({ subject, description, reporterEmail })
         });
 
         if (response.ok) {
           alert('Ticket created successfully!');
-          document.getElementById('ticketForm').reset();
-          fetchTickets();
+          // Clear form fields
+          document.getElementById('subjectInput').value = '';
+          document.getElementById('descriptionInput').value = '';
+          document.getElementById('emailInput').value = '';
+          fetchTickets(); // Refresh the list of tickets
         } else {
           const errorData = await response.text();
           alert(`Failed to create ticket: ${errorData}`);
+          console.error('Backend error:', errorData);
         }
       } catch (error) {
-        alert('An error occurred while creating the ticket.');
-        console.error(error);
+        console.error('Network or client-side error creating ticket:', error);
+        alert('An error occurred while creating the ticket. Please check your internet connection or try again.');
       }
     }
 
+    // Function to fetch and display tickets
     async function fetchTickets() {
       const ticketListDiv = document.getElementById('ticketList');
-      ticketListDiv.innerHTML = '<p>Loading tickets...</p>';
+      ticketListDiv.innerHTML = '<p>Loading tickets...</p>'; // Show loading state
+
       try {
         const response = await fetch(`${CLOUD_RUN_API_URL}/tickets`);
         if (response.ok) {
           const tickets = await response.json();
-          ticketListDiv.innerHTML = tickets.length
-            ? tickets.map(ticket => `
-              <div class="ticket-item">
-                <h3>${ticket.subject} <small>(ID: ${ticket.id})</small></h3>
-                <p><strong>Status:</strong> ${ticket.status}</p>
-                <p><strong>Reporter:</strong> ${ticket.reporterEmail}</p>
-                <p>${ticket.description}</p>
-                <small>Created: ${new Date(ticket.createdAt._seconds * 1000).toLocaleString()}</small>
-              </div>
-            `).join('')
-            : '<p>No tickets found yet.</p>';
+          if (tickets.length === 0) {
+            ticketListDiv.innerHTML = '<p>No tickets found yet.</p>';
+            return;
+          }
+          // Clear previous tickets and render new ones
+          ticketListDiv.innerHTML = tickets.map(ticket => `
+            <div class="ticket-item">
+              <h3>${ticket.subject} <small>(ID: ${ticket.id})</small></h3>
+              <p><strong>Status:</strong> ${ticket.status}</p>
+              <p><strong>Reporter:</strong> ${ticket.reporterEmail}</p>
+              <p>${ticket.description}</p>
+              <small>Created: ${new Date(ticket.createdAt._seconds * 1000).toLocaleString()}</small>
+            </div>
+          `).join('');
         } else {
           ticketListDiv.innerHTML = '<p>Failed to load tickets.</p>';
+          console.error('Failed to fetch tickets:', response.status, response.statusText);
         }
       } catch (error) {
-        console.error(error);
-        ticketListDiv.innerHTML = '<p>Error loading tickets.</p>';
+        console.error('Network or client-side error fetching tickets:', error);
+        ticketListDiv.innerHTML = '<p>An error occurred while loading tickets. Please try again later.</p>';
       }
     }
 
+    // Event listeners to run functions when the page loads and form is submitted
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('ticketForm').addEventListener('submit', createTicket);
-      fetchTickets();
+      fetchTickets(); // Load tickets when the page first loads
     });
-
-    // Mic Input Handling
-    const voiceBtn = document.getElementById('voiceBtn');
-    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-    recognition.lang = 'en-US';
-    recognition.interimResults = false;
-
-    voiceBtn.addEventListener('click', () => {
-      recognition.start();
-      voiceBtn.classList.add('listening');
-    });
-
-    recognition.onresult = function(event) {
-      const speechToText = event.results[0][0].transcript;
-      console.log('User said:', speechToText);
-
-      setTimeout(() => {
-        try {
-          const dfMessenger = document.querySelector('df-messenger');
-          const iframe = dfMessenger.shadowRoot.querySelector('iframe');
-          const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-          const inputBox = innerDoc.querySelector('input');
-
-          if (inputBox) {
-            inputBox.value = speechToText;
-            inputBox.dispatchEvent(new KeyboardEvent('keydown', {
-              bubbles: true,
-              cancelable: true,
-              key: 'Enter',
-              keyCode: 13
-            }));
-          } else {
-            alert("Chatbot input not found. Please try again.");
-          }
-        } catch (e) {
-          console.error('Error accessing chatbot iframe:', e);
-          alert('Chatbot not ready. Try again shortly.');
-        }
-      }, 500);
-
-      voiceBtn.classList.remove('listening');
-    };
-
-    recognition.onend = function() {
-      voiceBtn.classList.remove('listening');
-    };
-
-    recognition.onerror = function(event) {
-      console.error('Mic error:', event.error);
-      alert('Mic error: ' + event.error);
-      voiceBtn.classList.remove('listening');
-    };
   </script>
 
 </body>
 </html>
+
